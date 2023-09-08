@@ -1,38 +1,152 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background-color: black;
+  min-width: 100vw;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.App {
+  background-color: black;
+  min-width: 90vw;
+  min-height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  justify-content: center;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.box {
+  min-width: 20%;
+  max-height: 20%;
+  background-color: rgb(59, 74, 74);
+  border-radius: 20px;
+  position: relative;
+  
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    500px circle at var(--mouse-x) var(--mouse-y), var(--colour),
+    transparent 40%);
+  z-index: 2;
+  border-radius: 20px;
+}
+
+/* .App:hover > .box::before {
+  opacity: 1;
+} */
+
+.box1 {
+  --colour: rgb(241, 9, 9); 
+}
+
+.box2 {
+  --colour: rgb(241, 164, 9);
+}
+
+.box3 {
+  --colour: rgb(206, 241, 9);
+}
+
+.box4 {
+  --colour: rgb(9, 241, 67);
+}
+
+.box5 {
+  --colour: rgb(9, 222, 241);
+}
+
+.box6 {
+  --colour: rgb(9, 13, 241);
+}
+
+.box7 {
+  --colour: rgb(144, 9, 241);
+}
+
+.box8 {
+  --colour: rgb(241, 9, 218);
+}
+
+.circle1, .circle2, .circle3 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle1 {
+  top: calc(50% - 25px);
+  left: calc(28% - 25px);
+}
+
+.circle2 {
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+}
+
+.circle3 {
+  top: calc(50% - 25px);
+  left: calc(72.25% - 25px);
+}
+
+.circle::after, 
+.circle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+}
+
+.circle::before {
+  z-index: 2;
+}
+
+.circle:hover::after {
+  animation: pulse 1000ms infinite;
+}
+
+.circle1::before {
+  background: red;
+}
+
+.circle1:hover::after {
+  background: rgb(43, 226, 98);
+}
+
+.circle2::before {
+  background: red;
+}
+
+.circle2:hover::after {
+  background: lightblue;
+}
+
+.circle3::before {
+  background: red;
+}
+
+.circle3:hover::after {
+  background: red;
+}
+
+@keyframes pulse {
+ 0% {
+  transform: scale(1);
+  opacity: 0.75;
+ }
+ 100% {
+  transform: scale(10);
+  opacity: 0;
+ }
 }
